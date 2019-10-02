@@ -8,6 +8,9 @@ package bowling;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.lang.Exception;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Alexis Jalabert
@@ -27,7 +30,11 @@ public class MultiPGTest {
     @Test
     public void partieNonCommencer() throws Exception {
         System.out.println("TEST VISUEL");
-        System.out.println(game.lancer(4));
+        try {
+            game.lancer(4);
+        } catch (Exception ex) {
+            System.out.print(ex);
+        }
     }  
     
     /**
@@ -38,7 +45,11 @@ public class MultiPGTest {
     public void pasDeJoueur() throws Exception {
         String[] playerName = {};
         System.out.println("TEST VISUEL");
-        System.out.println(game.startNewGame(playerName));
+        try {
+            game.startNewGame(playerName);
+        } catch(Exception ex) {
+            System.out.println(ex);
+        }
     }
     
     /**
@@ -58,6 +69,7 @@ public class MultiPGTest {
      * La partie comporte plusieurs joueurs
      * @throws Exception 
      */
+    @Test
     public void plusieursJoueurs() throws Exception {
         String[] playerName = {"Roger", "Clement", "Alice"};
         System.out.println("TEST VISUEL ET NUMERIQUE");
