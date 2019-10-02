@@ -43,6 +43,9 @@ public class MultiPG implements MultiPlayerGame {
     */
     @Override
     public String lancer(int nombreDeQuillesAbattues) throws Exception {
+        if(player.isEmpty()) {
+            throw new Exception("La partie n'a pas commencé");
+        }
         
         return "";
     }
